@@ -1,0 +1,13 @@
+body, table { font-family: sans-serif; font-size: 9pt; }
+table { }
+th { background: #bbb; }
+td { background: #eee; }
+th, td { padding: 4px; width: 200px; }
+th.small, td.small { width: 96px; }
+.red_tech { color: red; }
+.blue_tech { color: blue; }
+.yellow_tech { color: #aa0; }
+.green_tech { color: #090; }
+.attacker { background: #afa; }
+.defender { background: #faa; }
+.victory_percentage { font-size: larger; font-weight: bold; float: right; }
