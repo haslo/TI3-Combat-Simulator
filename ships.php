@@ -25,6 +25,10 @@
 		public function get_number_of_hits($space) {
 			
 		}
+		
+		private function assign_fighters() {
+			
+		}
 	}
 	
 	class Unit {
@@ -46,8 +50,12 @@
 			return $number_of_hits;
 		}
 		
+		public function get_number_of_fighters() {
+			return 0;
+		}
+		
 		public function to_table_cells() {
-			return "<td>" . $this->get_name() . "</td>" .
+			return "<td>" . $this->get_name() . ($this->get_number_of_fighters() > 0 ? " (" . $this->get_number_of_fighters() . " fighters)" : "") . "</td>" .
 				"<td class=\"small\">" . $this->get_cost() . "</td>" .
 				"<td class=\"small\">" . ((10 - $this->roll_to_hit) / 10 * $this->number_of_dice) . "</td>";
 		}
@@ -63,6 +71,10 @@
 				3,
 				$has_admiral ? 4 : 3,
 				$can_sustain_damage ? 1 : 0);
+		}
+		
+		public function get_number_of_fighters() {
+			return 6;
 		}
 		
 		protected function get_name() {
@@ -81,6 +93,14 @@
 				$has_admiral ? 2 : 1,
 				$can_sustain_damage ? 1 : 0);
 		}
+		
+		protected function get_name() {
+			return "Dreadnought";
+		}
+		
+		protected function get_cost() {
+			return 5;
+		}
 	}
 	
 	class Carrier extends Unit {
@@ -91,6 +111,14 @@
 			parent::Unit(
 				9,
 				$has_admiral ? 2 : 1);
+		}
+		
+		protected function get_name() {
+			return "Carrier";
+		}
+		
+		protected function get_cost() {
+			return 3;
 		}
 	}
 ?>

@@ -78,6 +78,18 @@ $def_fleet = new Fleet(false);
 					</td>
 				</tr>
 				<tr>
+					<td colspan="2">
+						<input type="text" id="SD_att" name="SD_att" size="4"
+						<? if ($_POST["SD_att"]) { echo("value=\"" . $_POST["SD_att"] . "\" "); } ?>/>
+						<label for="SD_att">Space Docks</label>
+					</td>
+					<td colspan="2">
+						<input type="text" id="SD_def" name="SD_def" size="4"
+						<? if ($_POST['SD_def']) { echo("value=\"" . $_POST['SD_def'] . "\" "); } ?>/>
+						<label for="SD_def">Space Docks</label>
+					</td>
+				</tr>
+				<tr>
 					<td>
 						<input type="text" id="PDS_att" name="PDS_att" size="4"
 						<? if ($_POST["PDS_att"]) { echo("value=\"" . $_POST["PDS_att"] . "\" "); } ?>/>
