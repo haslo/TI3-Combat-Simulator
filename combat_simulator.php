@@ -1,5 +1,5 @@
-<? require("ships.php") ?>
 <?
+require("ships.php");
 $att_fleet = new Fleet(true);
 $def_fleet = new Fleet(false);
 ?>
@@ -17,19 +17,21 @@ $def_fleet = new Fleet(false);
 		<h2>Results</h2>
 		<table>
 			<tr>
-				<th colspan="3" class="attacker">Attacker</th>
-				<th colspan="3" class="defender">Defender</th>
+				<th colspan="4" class="attacker">Attacker</th>
+				<th colspan="4" class="defender">Defender</th>
 			</tr>
 			<tr>
-				<th colspan="6">Starting Units</th>
+				<th colspan="8">Starting Units</th>
 			</tr>
 			<tr>
 				<th>Unit</th>
 				<th class="small">Cost</th>
 				<th class="small">Avg Hits</th>
+				<th class="small">Survival</th>
 				<th>Unit</th>
 				<th class="small">Cost</th>
 				<th class="small">Avg Hits</th>
+				<th class="small">Survival</th>
 			</tr>
 			<? for ($i = 0; $i < max($att_fleet->fleet_size(), $def_fleet->fleet_size()); $i++) { ?>
 				<tr>
@@ -41,20 +43,20 @@ $def_fleet = new Fleet(false);
 					<? if ($i < $def_fleet->fleet_size()) { ?>
 						<?= $def_fleet->ship_at($i)->to_table_cells(); ?>
 					<? } else { ?>
-						<td colspan="3">
+						<td colspan="4">
 					<? } ?>
 				</tr>
 			<? } ?>
 			<tr>
-				<th colspan="6">Victory Percentage</th>
+				<th colspan="8">Victory Percentage</th>
 			</tr>
 			<tr>
-				<td colspan="3">Space: <span class="victory_percentage">0%</span></td>
-				<td colspan="3">Space: <span class="victory_percentage">0%</span></td>
+				<td colspan="4">Space: <span class="victory_percentage">0%</span></td>
+				<td colspan="4">Space: <span class="victory_percentage">0%</span></td>
 			</tr>
 			<tr>
-				<td colspan="3">Ground: <span class="victory_percentage">0%</span></td>
-				<td colspan="3">Ground: <span class="victory_percentage">0%</span></td>
+				<td colspan="4">Ground: <span class="victory_percentage">0%</span></td>
+				<td colspan="4">Ground: <span class="victory_percentage">0%</span></td>
 			</tr>
 		</table>
 		<?
@@ -170,30 +172,30 @@ $def_fleet = new Fleet(false);
 				</tr>
 				<tr>
 					<td>
-						<input type="text" id="CS_att" name="CS_att" size="4"
-						<? if ($_POST["CS_att"]) { echo("value=\"" . $_POST["CS_att"] . "\" "); } ?>/>
-						<label for="CS_att">Cruisers</label>
+						<input type="text" id="CA_att" name="CA_att" size="4"
+						<? if ($_POST["CA_att"]) { echo("value=\"" . $_POST["CA_att"] . "\" "); } ?>/>
+						<label for="CA_att">Cruisers</label>
 					</td>
 					<td>
-						<input type="checkbox" id="Admiral_CS_att" name="Admiral_CS_att"
-						<? if ($_POST["Admiral_CS_att"]) { echo("checked "); } ?>/>
-						<label for="Admiral_CS_att">Admiral</label><br />
-						<input type="checkbox" id="CS_sustain_att" name="CS_sustain_att"
-						<? if ($_POST["CS_sustain_att"]) { echo("checked "); } ?>/>
-						<label for="CS_sustain_att">sustain damage</label>
+						<input type="checkbox" id="Admiral_CA_att" name="Admiral_CA_att"
+						<? if ($_POST["Admiral_CA_att"]) { echo("checked "); } ?>/>
+						<label for="Admiral_CA_att">Admiral</label><br />
+						<input type="checkbox" id="CA_sustain_att" name="CA_sustain_att"
+						<? if ($_POST["CA_sustain_att"]) { echo("checked "); } ?>/>
+						<label for="CA_sustain_att">sustain damage</label>
 					</td>
 					<td>
-						<input type="text" id="CS_def" name="CS_def" size="4"
-						<? if ($_POST["CS_def"]) { echo("value=\"" . $_POST["CS_def"] . "\" "); } ?>/>
-						<label for="CS_def">Cruisers</label>
+						<input type="text" id="CA_def" name="CA_def" size="4"
+						<? if ($_POST["CA_def"]) { echo("value=\"" . $_POST["CA_def"] . "\" "); } ?>/>
+						<label for="CA_def">Cruisers</label>
 					</td>
 					<td>
-						<input type="checkbox" id="Admiral_CS_def" name="Admiral_CS_def"
-						<? if ($_POST["Admiral_CS_def"]) { echo("checked "); } ?>/>
-						<label for="Admiral_CS_def">Admiral</label><br />
-						<input type="checkbox" id="CS_sustain_def" name="CS_sustain_def"
-						<? if ($_POST["CS_sustain_def"]) { echo("checked "); } ?>/>
-						<label for="CS_sustain_def">sustain damage</label>
+						<input type="checkbox" id="Admiral_CA_def" name="Admiral_CA_def"
+						<? if ($_POST["Admiral_CA_def"]) { echo("checked "); } ?>/>
+						<label for="Admiral_CA_def">Admiral</label><br />
+						<input type="checkbox" id="CA_sustain_def" name="CA_sustain_def"
+						<? if ($_POST["CA_sustain_def"]) { echo("checked "); } ?>/>
+						<label for="CA_sustain_def">sustain damage</label>
 					</td>
 				</tr>
 				<tr>

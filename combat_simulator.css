@@ -3,7 +3,7 @@ table { }
 th { background: #bbb; }
 td { background: #eee; }
 th, td { padding: 4px; width: 200px; }
-th.small, td.small { width: 96px; }
+th.small, td.small { width: 60px; }
 .red_tech { color: red; }
 .blue_tech { color: blue; }
 .yellow_tech { color: #aa0; }
